@@ -1,20 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/Header/Header.jsx";
+import Weather from "./components/Weather/Weather.jsx";
+import Map from "./components/Map/Map.jsx";
+import Stats from "./components/Stats/Stats.jsx";
+import NextDays from "./components/NextDays/NextDays.jsx";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
+    <div className="container">
       <Header></Header>
-      <Weather></Weather>
-      <Map></Map>
+      <main className="main-container">
+          <Weather></Weather>
+        <Map></Map>
+      </main>
       <Stats></Stats>
       <NextDays></NextDays>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

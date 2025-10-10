@@ -1,0 +1,26 @@
+.weather_content{
+    width: max-content;
+    display: flex;
+      gap: 20px;
+}
+.weather_cold, .weather_warm {
+  width: 370px;
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+.weather_warm {
+  background: linear-gradient(#5fb4f3, #2c79c1);
+}
+.weather_cold {
+    background: linear-gradient(#0A2E69, #0C43AB);
+}
+.weather_data {
+  background-color: white;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+}

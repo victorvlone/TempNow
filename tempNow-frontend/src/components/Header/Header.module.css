@@ -1,0 +1,8 @@
+.header_container{
+    width: 80%;
+}
+
+.logo{
+    width: 170px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+}
