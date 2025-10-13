@@ -1,5 +1,15 @@
 .header_container{
-    width: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search_input{
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    border: none;
+    width: 600px;
+    height: 40px;
 }
 
 .logo{

@@ -1,4 +1,4 @@
-.container{
+.container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -6,11 +6,32 @@
 }
 .main-container{
   display: flex;
-  width: 100%;
-    gap: 20px;
+  justify-content: space-between;
+}
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  gap: 20px;
+}
+.map-section {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: fit-content;
+}
+.stats-content{
+  display: flex;
+}
+.nextDays-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: end;
 }
 
-.weather_section{
+.weather_section {
   display: flex;
   gap: 20px;
 }

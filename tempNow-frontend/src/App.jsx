@@ -12,11 +12,21 @@ function App() {
     <div className="container">
       <Header></Header>
       <main className="main-container">
+        <section className="weather-container">
           <Weather></Weather>
-        <Map></Map>
+          <Stats></Stats>
+        </section>
+        <section className="map-section">
+          <Map></Map>
+          <div className="nextDays-content">
+            <NextDays></NextDays>
+            <NextDays></NextDays>
+            <NextDays></NextDays>
+            <NextDays></NextDays>
+            <NextDays></NextDays>
+          </div>
+        </section>
       </main>
-      <Stats></Stats>
-      <NextDays></NextDays>
     </div>
   );
 }

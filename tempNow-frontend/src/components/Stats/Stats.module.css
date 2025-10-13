@@ -1,7 +1,7 @@
 .stats_container{
     display: flex;
     gap: 30px;
-    width: 46%;
+    width: fit-content;
     justify-content: center;
 }
 
@@ -15,6 +15,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+    background-color: white;
 }
 .stats_icon{
     width: 100px;
