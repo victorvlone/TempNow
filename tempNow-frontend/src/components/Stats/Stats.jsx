@@ -1,6 +1,13 @@
 import styles from "./Stats.module.css";
 
-function Stats() {
+function Stats({ dadosDoClima }) {
+  const { name, main, weather, wind } = dadosDoClima;
+
+  const tempMinina = main.temp_min;
+  const tempMaxima = main.temp_max;
+  const umidade = main.humidity;
+  const vento = wind.speed;
+
   return (
     <section className={styles.stats_container}>
       <div className={styles.stats}>
@@ -17,7 +24,7 @@ function Stats() {
           className={styles.stats_icon}
         />
         <div className={styles.stats_text}>
-          <h4>32</h4>
+          <h4>{tempMinina}</h4>
           <p className={styles.temp}>ºC</p>
         </div>
       </div>
@@ -35,7 +42,7 @@ function Stats() {
           className={styles.stats_icon}
         />
         <div className={styles.stats_text}>
-          <h4>40</h4>
+          <h4>{tempMaxima}</h4>
           <p className={styles.temp}>ºC</p>
         </div>
       </div>
@@ -53,7 +60,7 @@ function Stats() {
           className={styles.stats_icon}
         />
         <div className={styles.stats_text}>
-          <h4>3.9</h4>
+          <h4>{vento}</h4>
           <p>m/s</p>
         </div>
       </div>
@@ -71,7 +78,7 @@ function Stats() {
           className={styles.stats_icon}
         />
         <div className={styles.stats_text}>
-          <h4>62</h4>
+          <h4>{umidade}</h4>
           <p>%</p>
         </div>
       </div>

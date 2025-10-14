@@ -1,12 +1,31 @@
-import styles from './Header.module.css'
+import styles from "./Header.module.css";
 
-function Header() {
+function Header({ setNomePesquisado, buscarClima }) {
+  const handleInputChange = (event) => {
+    setNomePesquisado(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+
+    buscarClima();
+  };
   return (
     <header className={styles.header_container}>
-      <img src="../public/assets/images/logo.png" alt="" className={styles.logo} />
-      <div className="search-bar">
-        <input type="text" className={styles.search_input} />
-      </div>
+      <img src="/assets/images/logo.png" alt="Logo" className={styles.logo} />
+
+      <form className={styles.search_bar} onSubmit={handleSearchSubmit}>
+        <input
+          type="text"
+          placeholder="Digite o nome da cidade..."
+          className={styles.search_input}
+          onChange={handleInputChange}
+        />
+
+        <button type="submit" className={styles.search_button}>
+          Buscar 🔍
+        </button>
+      </form>
     </header>
   );
 }
