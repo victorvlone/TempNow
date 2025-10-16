@@ -7,12 +7,12 @@
   box-sizing: border-box;
 }
 :root {
-  --primeiro-azul-claro: #5fb4f3;
-  --segundo-azul-claro: #2c79c1;
-  --primeiro-azul-escuro: #0c43ab;
-  --segundo-azul-escuro: #0a2e69;
-  --primeiro-cinza: #5D6572;
-  --segundo-cinza: #A1ADC3;
+  --primeiro-azul-claro: rgb(95, 180, 243, 0.5);
+  --segundo-azul-claro: rgb(44, 121, 193, 0.5);
+  --primeiro-azul-escuro: rgb(12, 67, 171, 0.5);
+  --segundo-azul-escuro: rgb(10, 46, 105, 0.5);
+  --primeiro-cinza: rgb(93, 101, 114, 0.5);
+  --segundo-cinza: rgb(161, 173, 195, 0.5);
   --sombra: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 body {
