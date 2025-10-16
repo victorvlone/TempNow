@@ -20,9 +20,23 @@
   justify-content: space-between;
   flex-direction: column;
   width: fit-content;
+  gap: 20px;
 }
 .stats-content{
   display: flex;
+}
+.nextDays-container{
+  color: white;
+  text-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nextDays-container h5{
+  font-weight: 500;
+}
+.nextDays-container h4{
+  font-weight: 700;
 }
 .nextDays-content {
   display: flex;
