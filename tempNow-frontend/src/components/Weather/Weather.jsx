@@ -1,14 +1,15 @@
 import styles from "./Weather.module.css";
 
 const DEFAULT_WEATHER_DATA = {
+  name: "N/A",
+  sys: "N/A",
   weather: [{ description: "N/A" }],
   main: { temp: 0 },
 };
 
 function Weather({ dadosDoClima }) {
   const dataToDisplay = dadosDoClima || DEFAULT_WEATHER_DATA;
-  const { weather } = dataToDisplay;
-  const { main } = dataToDisplay;
+  const { weather, main, name, sys } = dataToDisplay;
   const descricao = weather[0].description;
   const temperatura = Math.round(main.temp);
 
@@ -22,12 +23,12 @@ function Weather({ dadosDoClima }) {
             <p className={styles.weather_warm_Celsius}>ºC</p>
           </h1>
           <h4 className={styles.description_text}>{descricao}</h4>
+          <hr />
+          <h1 className={styles.country_text}>{name}, {sys.country}</h1>
         </div>
-        <section className={styles.weather_data}></section>
       </article>
 
       <article className={styles.weather_cold}>
-        <section className={styles.weather_data}></section>
       </article>
     </section>
   );
