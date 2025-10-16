@@ -1,10 +1,19 @@
 import styles from "./Stats.module.css";
 
-function Stats({ dadosDoClima }) {
-  const { name, main, weather, wind } = dadosDoClima;
+const DEFAULT_STATS_DATA = {
+  name: "N/A",
+  main: { temp_min: 0, temp_max: 0, humidity: 0 },
+  weather: [],
+  wind: { speed: 0 },
+};
 
-  const tempMinina = main.temp_min;
-  const tempMaxima = main.temp_max;
+function Stats({ dadosDoClima }) {
+  const dataToDisplay = dadosDoClima || DEFAULT_STATS_DATA;
+
+  const { main, wind } = dataToDisplay;
+
+  const tempMinina = Math.round(main.temp_min);
+  const tempMaxima = Math.round(main.temp_max);
   const umidade = main.humidity;
   const vento = wind.speed;
 
@@ -13,14 +22,14 @@ function Stats({ dadosDoClima }) {
       <div className={styles.stats}>
         <div className={styles.info_icon_container}>
           <img
-            src="../public/assets/images/circulo-de-informacao.png"
-            alt=""
+            src="/assets/images/circulo-de-informacao.png"
+            alt="Info"
             className={styles.icon_info}
           />
         </div>
         <img
-          src="../public/assets/images/temperatura-baixa.png"
-          alt=""
+          src="/assets/images/temperatura-baixa.png"
+          alt="Temperatura Baixa"
           className={styles.stats_icon}
         />
         <div className={styles.stats_text}>
@@ -28,17 +37,18 @@ function Stats({ dadosDoClima }) {
           <p className={styles.temp}>ºC</p>
         </div>
       </div>
+
       <div className={styles.stats}>
         <div className={styles.info_icon_container}>
           <img
-            src="../public/assets/images/circulo-de-informacao.png"
-            alt=""
+            src="/assets/images/circulo-de-informacao.png"
+            alt="Info"
             className={styles.icon_info}
           />
         </div>
         <img
-          src="../public/assets/images/temperatura-alta.png"
-          alt=""
+          src="/assets/images/temperatura-alta.png"
+          alt="Temperatura Alta"
           className={styles.stats_icon}
         />
         <div className={styles.stats_text}>
@@ -46,17 +56,18 @@ function Stats({ dadosDoClima }) {
           <p className={styles.temp}>ºC</p>
         </div>
       </div>
+
       <div className={styles.stats}>
         <div className={styles.info_icon_container}>
           <img
-            src="../public/assets/images/circulo-de-informacao.png"
-            alt=""
+            src="/assets/images/circulo-de-informacao.png"
+            alt="Info"
             className={styles.icon_info}
           />
         </div>
         <img
-          src="../public/assets/images/vento.png"
-          alt=""
+          src="/assets/images/vento.png"
+          alt="Vento"
           className={styles.stats_icon}
         />
         <div className={styles.stats_text}>
@@ -64,17 +75,18 @@ function Stats({ dadosDoClima }) {
           <p>m/s</p>
         </div>
       </div>
+
       <div className={styles.stats}>
         <div className={styles.info_icon_container}>
           <img
-            src="../public/assets/images/circulo-de-informacao.png"
-            alt=""
+            src="/assets/images/circulo-de-informacao.png"
+            alt="Info"
             className={styles.icon_info}
           />
         </div>
         <img
-          src="../public/assets/images/agua.png"
-          alt=""
+          src="/assets/images/agua.png"
+          alt="Água"
           className={styles.stats_icon}
         />
         <div className={styles.stats_text}>

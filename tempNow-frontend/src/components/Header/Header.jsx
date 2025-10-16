@@ -14,7 +14,7 @@ function Header({ setNomePesquisado, buscarClima }) {
     <header className={styles.header_container}>
       <img src="/assets/images/logo.png" alt="Logo" className={styles.logo} />
 
-      <form className={styles.search_bar} onSubmit={handleSearchSubmit}>
+      <form className={styles.search_wrapper} onSubmit={handleSearchSubmit}>
         <input
           type="text"
           placeholder="Digite o nome da cidade..."
@@ -23,7 +23,7 @@ function Header({ setNomePesquisado, buscarClima }) {
         />
 
         <button type="submit" className={styles.search_button}>
-          Buscar 🔍
+          🔍
         </button>
       </form>
     </header>

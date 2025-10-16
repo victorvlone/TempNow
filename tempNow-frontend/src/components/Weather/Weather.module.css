@@ -1,9 +1,10 @@
-.weather_content{
-    width: max-content;
-    display: flex;
-      gap: 20px;
+.weather_content {
+  width: max-content;
+  display: flex;
+  gap: 20px;
 }
-.weather_cold, .weather_warm {
+.weather_cold,
+.weather_warm {
   width: 370px;
   height: 450px;
   border-radius: 10px;
@@ -13,13 +14,39 @@
 .weather_warm {
   background: linear-gradient(#5fb4f3, #2c79c1);
 }
+.weather_warm_main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 80%;
+  justify-content: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+}
+.weather_icons {
+  width: 150px;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+}
+.weather_warm_temp {
+  display: flex;
+  align-items: flex-start;
+  font-size: 90px;
+  line-height: 1;
+  margin-top: 10px;
+}
+.weather_warm_Celsius {
+  font-size: 45px;
+  line-height: 1;
+  display: flex;
+  
+}
 .weather_cold {
-    background: linear-gradient(#0A2E69, #0C43AB);
+  background: linear-gradient(#0a2e69, #0c43ab);
 }
 .weather_data {
   background-color: white;
   width: 100%;
-  height: 100px;
+  height: 20%;
   position: absolute;
   bottom: 0;
   border-radius: 0 0 10px 10px;
