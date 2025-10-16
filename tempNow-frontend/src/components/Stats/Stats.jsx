@@ -15,7 +15,7 @@ function Stats({ dadosDoClima }) {
   const tempMinina = Math.round(main.temp_min);
   const tempMaxima = Math.round(main.temp_max);
   const umidade = main.humidity;
-  const vento = wind.speed;
+  const vento = wind.speed.toFixed(1);
 
   return (
     <section className={styles.stats_container}>
