@@ -6,6 +6,12 @@ import Map from "./components/Map/Map.jsx";
 import Stats from "./components/Stats/Stats.jsx";
 import NextDays from "./components/NextDays/NextDays.jsx";
 import "./App.css";
+import { DEFAULT_NEXTDAYS_DATA } from "./utils/defaults.js";
+
+const initialFallbackArray = Array.from({ length: 5 }, (_, index) => ({
+    ...DEFAULT_NEXTDAYS_DATA,
+    date: `Dia-${index + 1}` 
+}));
 
 function get5DayForecast(dataList) {
   if (!dataList) return [];
@@ -48,7 +54,8 @@ function App() {
   const [nomePesquisado, setNomePesquisado] = useState("");
   const [dadosDoClima, setDadosDoClima] = useState(null);
   const [previsao5Dias, setPrevisao5Dias] = useState(null);
-  const [dados5DiasProcessados, setDados5DiasProcessados] = useState([]);
+  const [dados5DiasProcessados, setDados5DiasProcessados] =
+    useState(initialFallbackArray);
 
   const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
@@ -122,7 +129,9 @@ function App() {
         <section className="map-section">
           <Map></Map>
           <div className="nextDays-container">
-            <h5>Previsão para <br /> <h4>os proximos 5 dias:</h4></h5>
+            <h5>
+              Previsão para <br /> <h4>os proximos 5 dias:</h4>
+            </h5>
             <div className="nextDays-content">
               {dados5DiasProcessados.map((dayData) => (
                 <NextDays key={dayData.date} data={dayData} />
