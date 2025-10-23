@@ -9,8 +9,8 @@ import "./App.css";
 import { DEFAULT_NEXTDAYS_DATA } from "./utils/defaults.js";
 
 const initialFallbackArray = Array.from({ length: 5 }, (_, index) => ({
-    ...DEFAULT_NEXTDAYS_DATA,
-    date: `Dia-${index + 1}` 
+  ...DEFAULT_NEXTDAYS_DATA,
+  date: `Dia-${index + 1}`,
 }));
 
 function get5DayForecast(dataList) {
@@ -51,22 +51,32 @@ function get5DayForecast(dataList) {
 }
 
 function App() {
-  const [nomePesquisado, setNomePesquisado] = useState("");
+  const [nomePesquisado, setNomePesquisado] = useState("salvador");
   const [dadosDoClima, setDadosDoClima] = useState(null);
+  const [dadosAnteriores, setDadosAnteriores] = useState(null);
   const [previsao5Dias, setPrevisao5Dias] = useState(null);
   const [dados5DiasProcessados, setDados5DiasProcessados] =
     useState(initialFallbackArray);
 
   const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
-  async function buscarClima() {
-    const cidade = nomePesquisado;
+  useEffect(() => {
+    // A função buscarClima irá usar o valor de nomePesquisado ("Salvador")
+    // e iniciar a primeira busca.
+    buscarClima();
+
+    // O array vazio garante que isso rode apenas na primeira montagem.
+  }, []);
+
+  async function buscarClima(cidadeParam = nomePesquisado) {
+    const cidade = cidadeParam;
     if (!API_KEY || API_KEY === "undefined") {
       console.error(
         "ERRO: A chave de API está faltando! Verifique o arquivo .env."
       );
       return;
     }
+    setDadosAnteriores(dadosDoClima);
     const url = `http://api.openweathermap.org/geo/1.0/direct?q=${cidade}&limit=1&appid=${API_KEY}`;
 
     try {
@@ -104,6 +114,7 @@ function App() {
   }
   useEffect(() => {
     if (dadosDoClima && previsao5Dias) {
+      console.log("Dados do clima ANTERIORES:", dadosAnteriores);
       console.log("Dados do clima ATUALIZADOS!:", dadosDoClima);
       console.log("Dados dos proximos 5 dias: ", previsao5Dias);
     }
@@ -123,11 +134,16 @@ function App() {
       ></Header>
       <main className="main-container">
         <section className="weather-container">
-          <Weather dadosDoClima={dadosDoClima}></Weather>
+          <Weather
+            dadosDoClima={dadosDoClima}
+            dadosAnteriores={dadosAnteriores}
+            setNomePesquisado={setNomePesquisado}
+            buscarClima={buscarClima}
+          ></Weather>
           <Stats dadosDoClima={dadosDoClima}></Stats>
         </section>
         <section className="map-section">
-          <Map></Map>
+          <Map dadosDoClima={dadosDoClima}></Map>
           <div className="nextDays-container">
             <h5>
               Previsão para <br /> <h4>os proximos 5 dias:</h4>
