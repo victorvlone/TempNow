@@ -61,11 +61,7 @@ function App() {
   const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
   useEffect(() => {
-    // A função buscarClima irá usar o valor de nomePesquisado ("Salvador")
-    // e iniciar a primeira busca.
     buscarClima();
-
-    // O array vazio garante que isso rode apenas na primeira montagem.
   }, []);
 
   async function buscarClima(cidadeParam = nomePesquisado) {
