@@ -15,7 +15,13 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+  text-shadow: var(--sombra);
   background-color: rgb(255, 255, 255, 0.3);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.stats_dark {
+  color: white;
+  background-color: rgba(31, 41, 55, 0.3);
 }
 .stats_icon {
   width: 90px;
@@ -44,6 +50,7 @@
   width: 100%;
   display: flex;
   justify-content: end;
+  font-size: 10px;
 }
 .icon_info {
   width: 10px;

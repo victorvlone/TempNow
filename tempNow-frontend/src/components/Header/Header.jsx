@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
-import { FaMoon, FaSearch } from "react-icons/fa";
+import { FaMoon, FaSearch, FaSun } from "react-icons/fa";
 
-function Header({ setNomePesquisado, buscarClima }) {
+function Header({ setNomePesquisado, buscarClima, setDarkMode, darkMode }) {
   const handleInputChange = (event) => {
     setNomePesquisado(event.target.value);
   };
@@ -11,18 +11,24 @@ function Header({ setNomePesquisado, buscarClima }) {
 
     buscarClima();
   };
+
+  const handleThemeToggle = () => {
+    setDarkMode((prev) => !prev);
+  };
   return (
     <header className={styles.header_container}>
       <img src="/assets/images/logo.png" alt="Logo" className={styles.logo} />
 
       <form className={styles.search_wrapper} onSubmit={handleSearchSubmit}>
-        <span className={styles.icon_wrapper}>
-          <FaMoon />
+        <span className={styles.icon_wrapper} onClick={handleThemeToggle}>
+          {darkMode ? <FaSun /> : <FaMoon />}
         </span>
         <input
           type="text"
           placeholder="Digite o nome da cidade..."
-          className={styles.search_input}
+          className={`${styles.search_input} ${
+            darkMode ? styles.search_input_dark : ""
+          }`}
           onChange={handleInputChange}
         />
 

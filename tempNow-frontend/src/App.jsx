@@ -55,8 +55,17 @@ function App() {
   const [dadosDoClima, setDadosDoClima] = useState(null);
   const [dadosAnteriores, setDadosAnteriores] = useState(null);
   const [previsao5Dias, setPrevisao5Dias] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
   const [dados5DiasProcessados, setDados5DiasProcessados] =
     useState(initialFallbackArray);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [darkMode]);
 
   const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
@@ -127,6 +136,8 @@ function App() {
       <Header
         setNomePesquisado={setNomePesquisado}
         buscarClima={buscarClima}
+        setDarkMode={setDarkMode}
+        darkMode={darkMode}
       ></Header>
       <main className="main-container">
         <section className="weather-container">
@@ -136,7 +147,7 @@ function App() {
             setNomePesquisado={setNomePesquisado}
             buscarClima={buscarClima}
           ></Weather>
-          <Stats dadosDoClima={dadosDoClima}></Stats>
+          <Stats dadosDoClima={dadosDoClima} darkMode={darkMode}></Stats>
         </section>
         <section className="map-section">
           <Map dadosDoClima={dadosDoClima}></Map>

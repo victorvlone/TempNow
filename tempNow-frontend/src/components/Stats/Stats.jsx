@@ -1,4 +1,5 @@
 import styles from "./Stats.module.css";
+import { FaInfoCircle } from "react-icons/fa";
 
 const DEFAULT_STATS_DATA = {
   name: "N/A",
@@ -7,7 +8,7 @@ const DEFAULT_STATS_DATA = {
   wind: { speed: 0 },
 };
 
-function Stats({ dadosDoClima }) {
+function Stats({ dadosDoClima, darkMode }) {
   const dataToDisplay = dadosDoClima || DEFAULT_STATS_DATA;
 
   const { main, wind } = dataToDisplay;
@@ -19,13 +20,9 @@ function Stats({ dadosDoClima }) {
 
   return (
     <section className={styles.stats_container}>
-      <div className={styles.stats}>
+      <div className={`${styles.stats} ${darkMode ? styles.stats_dark : ""}`}>
         <div className={styles.info_icon_container}>
-          <img
-            src="/assets/images/circulo-de-informacao.png"
-            alt="Info"
-            className={styles.icon_info}
-          />
+          <FaInfoCircle />
         </div>
         <img
           src="/assets/images/temperatura-baixa.png"
@@ -38,13 +35,9 @@ function Stats({ dadosDoClima }) {
         </div>
       </div>
 
-      <div className={styles.stats}>
+      <div className={`${styles.stats} ${darkMode ? styles.stats_dark : ""}`}>
         <div className={styles.info_icon_container}>
-          <img
-            src="/assets/images/circulo-de-informacao.png"
-            alt="Info"
-            className={styles.icon_info}
-          />
+          <FaInfoCircle />
         </div>
         <img
           src="/assets/images/temperatura-alta.png"
@@ -57,13 +50,9 @@ function Stats({ dadosDoClima }) {
         </div>
       </div>
 
-      <div className={styles.stats}>
+      <div className={`${styles.stats} ${darkMode ? styles.stats_dark : ""}`}>
         <div className={styles.info_icon_container}>
-          <img
-            src="/assets/images/circulo-de-informacao.png"
-            alt="Info"
-            className={styles.icon_info}
-          />
+          <FaInfoCircle />
         </div>
         <img
           src="/assets/images/vento.png"
@@ -76,13 +65,9 @@ function Stats({ dadosDoClima }) {
         </div>
       </div>
 
-      <div className={styles.stats}>
+      <div className={`${styles.stats} ${darkMode ? styles.stats_dark : ""}`}>
         <div className={styles.info_icon_container}>
-          <img
-            src="/assets/images/circulo-de-informacao.png"
-            alt="Info"
-            className={styles.icon_info}
-          />
+          <FaInfoCircle />
         </div>
         <img
           src="/assets/images/agua.png"
