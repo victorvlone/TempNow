@@ -150,7 +150,7 @@ function App() {
           <Stats dadosDoClima={dadosDoClima} darkMode={darkMode}></Stats>
         </section>
         <section className="map-section">
-          <Map dadosDoClima={dadosDoClima}></Map>
+          <Map dadosDoClima={dadosDoClima} darkMode={darkMode}></Map>
           <div className="nextDays-container">
             <h5>
               Previsão para <br /> <h4>os proximos 5 dias:</h4>

@@ -20,10 +20,23 @@ const DEFAULT_MAP_DATA = {
   coord: { lat: -15.7801, lon: -47.9292 },
 };
 
-function Map({ dadosDoClima }) {
+function Map({ dadosDoClima, darkMode }) {
   const dataToDisplay = dadosDoClima || DEFAULT_MAP_DATA;
   const { coord } = dataToDisplay;
   const mapCenter = [coord.lat, coord.lon];
+  let stadiaUrl = "";
+  let stadiaAttribution = "";
+  if (darkMode) {
+    stadiaUrl =
+      "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}";
+    stadiaAttribution =
+      '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+  } else {
+    stadiaUrl =
+      "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}";
+    stadiaAttribution =
+      '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+  }
   return (
     <section className={styles.map_container}>
       <MapContainer
@@ -34,8 +47,10 @@ function Map({ dadosDoClima }) {
         key={coord.lat}
       >
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution={stadiaAttribution}
+          url={stadiaUrl}
+          ext="png"
+          maxZoom={20}
         />
 
         <Marker position={mapCenter}>
